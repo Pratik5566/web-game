@@ -1,0 +1,249 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url(./images/mario-bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    height: 100vh; /* Restrict height to viewport */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+#main {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#board {
+    width: 540px; /* Default width */
+    height: 540px; /* Default height */
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    background: url(./images/soil.png);
+    background-size: cover;
+    border: 5px solid white;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden; /* Ensure no overflow of images */
+}
+
+#board div {
+    width: 33.33%; /* Maintain 3x3 grid */
+    height: 33.33%; /* Maintain square tiles */
+    background-image: url(./images/pipe.png);
+    background-size: contain; /* Ensure the pipe background fits fully */
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#board div img {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    width: 90px; /* Adjust image size for consistency */
+    height: 90px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Info Section */
+#info {
+    text-align: center;
+    padding: 20px;
+    border: 5px solid #ff0000;
+    border-radius: 25px;
+    background-color: rgba(200, 200, 200, 0.5);
+    position: relative;
+    width: 300px;
+    margin-top: 50px;
+}
+
+#restartButton {
+    background-color: #FF6347; /* Tomato color */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px 20px; /* Padding for size */
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    font-family: Arial, sans-serif; /* Consistent font */
+    cursor: pointer; /* Pointer cursor */
+    box-shadow: 0 4px #c2463a; /* Subtle shadow */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth effects */
+    margin-top: 20px; /* Add spacing */
+}
+
+#restartButton:hover {
+    background-color: #FF4500; /* Darker shade on hover */
+}
+
+#restartButton:active {
+    background-color: #E63900; /* Darkest shade on click */
+    transform: translateY(2px); /* Pressed effect */
+    box-shadow: 0 2px #c2463a; /* Adjust shadow */
+}
+
+
+
+/* Media Queries */
+
+/* For Large Devices (Laptop/Monitor) */
+@media (min-width: 1174px) {
+    #board {
+        width: 540px;
+        height: 540px;
+    }
+
+    #board div img {
+        width: 100px;
+        height: 90px;
+        position: absolute;
+        top: 28%;
+    }
+}
+
+/* For Medium Devices (Tablets, max-width: 1174px) */
+@media (max-width: 1174px) and (min-width: 1024px) {
+    #board {
+        width: 50%; /* Adjust to fit medium devices */
+    }
+
+    #board div img {
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        top: 28%;
+
+    }
+}
+
+/* For Small Devices (Tablets, max-width: 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    #main {
+        height: 100%;
+    }
+
+    #board {
+        width: 90%;
+    }
+
+    #info {
+        margin-top: 50px;
+        order: -1; /* Ensure the info div appears on top of the board */
+    }
+
+    #board div {
+        background-size: contain; /* Ensure background doesn't overflow */
+    }
+
+    #board div img {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 60px;
+        left: 90px;
+    }
+}
+
+/* For Smallest Devices (Mobile Phones, max-width: 767px) */
+@media (max-width: 767px) and ( min-width:620px) {
+    #main {
+        flex-direction: column; /* Stack elements */
+        align-items: center;
+        gap: 20px;
+    }
+
+    #board {
+        width: 90%;
+    }
+
+    #info {
+        margin-top: 50px;
+        order: -1; /* Ensure the info div appears on top of the board */
+    }
+
+    #board div {
+        background-size: contain; /* Adjust to fit background completely */
+    }
+
+    #board div img {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: 60px;
+        left: 90px;
+    }
+}
+
+@media (min-width:525px) and (max-width:619px) {
+    #main {
+        flex-direction: column; /* Stack elements */
+        align-items: center;
+        gap: 20px;
+    }
+
+    #board {
+        width: 90%;
+    }
+
+    #info {
+        margin-top: 50px;
+        order: -1; /* Ensure the info div appears on top of the board */
+    }
+
+    #board div {
+        background-size: contain; /* Adjust to fit background completely */
+    }
+
+    #board div img {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: 45px;
+        left: 75px;
+    }
+    
+}
+
+@media (min-width:300px) and (max-width:524px) {
+    #main {
+        flex-direction: column; /* Stack elements */
+        align-items: center;
+        gap: 20px;
+        width: 90%;
+    }
+
+    #board {
+    
+        width: 90%;
+    }
+
+    #info {
+        order: -1; /* Ensure the info div appears on top of the board */
+    
+    }
+
+    #board div {
+        background-size: contain; /* Adjust to fit background completely */
+    }
+
+    #board div img {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        top: 27px;
+        left: 55px;
+    }
+    
+}
+
